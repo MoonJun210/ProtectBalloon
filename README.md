@@ -37,7 +37,10 @@
 - 생존한 **시간이 곧 점수**
 - `PlayerPrefs`를 활용하여 **최고 기록 저장 및 갱신**
   ```csharp
-  if (PlayerPrefs.HasKey(key))
+// 최고 점수 갱신 로직 예시
+string key = "BestTime";
+
+if (PlayerPrefs.HasKey(key))
 {
     float best = PlayerPrefs.GetFloat(key);
     if (best < time)
@@ -48,16 +51,13 @@
     else
     {
         bestScore.text = best.ToString("N2");
-
     }
 }
 else
 {
     PlayerPrefs.SetFloat(key, time);
     bestScore.text = time.ToString("N2");
-
 }
-
 
 ---
 
